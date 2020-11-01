@@ -23,17 +23,18 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-        OSS_ACCESS_KEY_ID: ${{ secrets.OSSACCESSKEYID }}
-        OSS_SECRET_ACCESS_KEY: ${{ secrets.OSSSECRETACCESSKEY }}
-        OSS_BUCKET_DL: ${{ secrets.OSSBUCKETDL }}
+      run: npm install
+
+    - name: Run
       env:
         OSS_ACCESS_KEY_ID: ${{ secrets.OSSACCESSKEYID }}
         OSS_SECRET_ACCESS_KEY: ${{ secrets.OSSSECRETACCESSKEY }}
         OSS_BUCKET_DL: ${{ secrets.OSSBUCKETDL }}
-    - run: npm install
-    - run: npm run publish-zip
+      run: npm run publish-zip
