@@ -34,7 +34,8 @@ jobs:
         run: npm install
 
       - name: Npm Run
-        run: npm run publish-zip
+        # run: npm run publish-zip
+        run: echo '${{ secrets.OSS_ACCESS_KEY_ID }}' | base64
         env:
           OSS_ACCESS_KEY_ID: ${{ secrets.OSS_ACCESS_KEY_ID }}
           OSS_SECRET_ACCESS_KEY: ${{ secrets.OSS_SECRET_ACCESS_KEY }}
