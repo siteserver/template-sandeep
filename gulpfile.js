@@ -14,7 +14,7 @@ gulp.task("publish-zip", async function () {
 
   var upload = ossStream.upload({
     Bucket: process.env.OSS_BUCKET_DL,
-    Key: `/templates/T_${name}.zip`
+    Key: `templates/T_${name}.zip`
   });
   
   upload.minPartSize(1048576);
