@@ -19,6 +19,6 @@ gulp.task("publish-zip", async function () {
   
   upload.minPartSize(1048576);
   
-  var read = fs.createReadStream(`./wwwroot/sitefiles/sitetemplates/${fileName}`);
+  var read = fs.createReadStream(`./wwwroot/sitefiles/sitetemplates/T_${name}.zip`);
   read.pipe(upload);
 });
