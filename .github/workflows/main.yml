@@ -20,7 +20,7 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x]
-        
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -36,6 +36,6 @@ jobs:
       - name: Npm Run
         run: npm run publish-zip
         env:
-          OSS_ACCESS_KEY_ID: ${{ secrets.OSSACCESSKEYID }}
-          OSS_SECRET_ACCESS_KEY: ${{ secrets.OSSSECRETACCESSKEY }}
-          OSS_BUCKET_DL: ${{ secrets.OSSBUCKETDL }}
+          OSS_ACCESS_KEY_ID: ${{ secrets.OSS_ACCESS_KEY_ID }}
+          OSS_SECRET_ACCESS_KEY: ${{ secrets.OSS_SECRET_ACCESS_KEY }}
+          OSS_BUCKET_DL: ${{ secrets.OSS_BUCKET_DL }}
