@@ -17,3 +17,5 @@ docker run -d \
     -e SSCMS_DATABASE_TYPE=SQLite \
     sscms/core:latest
 ```
+
+运行后访问地址 http://localhost/ss-admin/ 即可进入后台，默认用户名密码为： admin/admin888
