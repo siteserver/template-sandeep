@@ -28,9 +28,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm install
-    - run: npm run publish-zip
-      with: # Set the secret as an input
         OSS_ACCESS_KEY_ID: ${{ secrets.OssAccessKeyId }}
         OSS_SECRET_ACCESS_KEY: ${{ secrets.OssSecretAccessKey }}
         OSS_BUCKET_DL: ${{ secrets.OssBucketDl }}
@@ -38,3 +35,5 @@ jobs:
         OSS_ACCESS_KEY_ID: ${{ secrets.OssAccessKeyId }}
         OSS_SECRET_ACCESS_KEY: ${{ secrets.OssSecretAccessKey }}
         OSS_BUCKET_DL: ${{ secrets.OssBucketDl }}
+    - run: npm install
+    - run: npm run publish-zip
