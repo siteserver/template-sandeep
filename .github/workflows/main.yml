@@ -34,8 +34,7 @@ jobs:
         run: npm install
 
       - name: Npm Run
-        # run: npm run publish-zip
-        run: (( '${{ secrets.OSS_ACCESS_KEY_ID }}'=='LTAI4GCDfo9YE9cM8Fca3MSN' )); echo $?
+        run: npm run publish-zip
         env:
           OSS_ACCESS_KEY_ID: ${{ secrets.OSS_ACCESS_KEY_ID }}
           OSS_SECRET_ACCESS_KEY: ${{ secrets.OSS_SECRET_ACCESS_KEY }}
