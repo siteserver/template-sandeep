@@ -4,7 +4,7 @@ const ALY = require('aliyun-sdk');
 
 const name = 'Sandeep';
 
-function publish(fileName) {
+gulp.task("publish-zip", async function () {
   var ossStream = require('aliyun-oss-upload-stream')(new ALY.OSS({
     accessKeyId: process.env.OSS_ACCESS_KEY_ID,
     secretAccessKey: process.env.OSS_SECRET_ACCESS_KEY,
@@ -14,15 +14,11 @@ function publish(fileName) {
 
   var upload = ossStream.upload({
     Bucket: process.env.OSS_BUCKET_DL,
-    Key: `cms/${version}/${fileName}`
+    Key: `/templates/${name}/T_${name}.zip`
   });
   
   upload.minPartSize(1048576);
   
   var read = fs.createReadStream(`./wwwroot/sitefiles/sitetemplates/${fileName}`);
   read.pipe(upload);
-}
-
-gulp.task("publish-zip", async function () {
-  publish(`T_${name}.zip`);
 });
