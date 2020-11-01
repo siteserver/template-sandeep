@@ -28,12 +28,12 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-        OSS_ACCESS_KEY_ID: ${{ secrets.OssAccessKeyId }}
-        OSS_SECRET_ACCESS_KEY: ${{ secrets.OssSecretAccessKey }}
-        OSS_BUCKET_DL: ${{ secrets.OssBucketDl }}
+        OSS_ACCESS_KEY_ID: ${{ secrets.OSSACCESSKEYID }}
+        OSS_SECRET_ACCESS_KEY: ${{ secrets.OSSSECRETACCESSKEY }}
+        OSS_BUCKET_DL: ${{ secrets.OSSBUCKETDL }}
       env:
-        OSS_ACCESS_KEY_ID: ${{ secrets.OssAccessKeyId }}
-        OSS_SECRET_ACCESS_KEY: ${{ secrets.OssSecretAccessKey }}
-        OSS_BUCKET_DL: ${{ secrets.OssBucketDl }}
+        OSS_ACCESS_KEY_ID: ${{ secrets.OSSACCESSKEYID }}
+        OSS_SECRET_ACCESS_KEY: ${{ secrets.OSSSECRETACCESSKEY }}
+        OSS_BUCKET_DL: ${{ secrets.OSSBUCKETDL }}
     - run: npm install
     - run: npm run publish-zip
